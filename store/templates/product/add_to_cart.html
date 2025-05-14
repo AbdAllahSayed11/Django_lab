@@ -1,0 +1,21 @@
+from django.shortcuts import redirect
+from .models import Product
+from django.contrib import messages
+
+def add_to_cart(request, product_id):
+    product = Product.objects.get(id=product_id)
+
+    # Logic to add the product to the user's cart
+    # For example, you could use session-based cart or a Cart model.
+    
+    # Assuming a session-based cart:
+    cart = request.session.get('cart', {})
+    if product_id in cart:
+        cart[product_id] += 1  # Increase quantity if already in cart
+    else:
+        cart[product_id] = 1  # Add new product to cart
+    
+    request.session['cart'] = cart
+
+    messages.success(request, f'{product.name} added to your cart!')
+    return redirect('product:product_detail', product_id=product.id)

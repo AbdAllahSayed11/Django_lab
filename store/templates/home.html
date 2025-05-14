@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-5 rounded-4 text-white" style="background: linear-gradient(135deg, #8531df 0%, #2575fc 100%);">
+    <h1 class="display-4 fw-bold">Welcome to Our Store!</h1>
+    <p class="lead">Discover amazing deals and top-notch products.</p>
+    <hr class="my-4 border-light">
+    <p class="mb-4">Shop now and explore top categories tailored for your needs.</p>
+    <div class="d-flex flex-wrap gap-3">
+        <a class="btn btn-light btn-lg shadow" href="{% url 'product:product_list' %}" role="button">
+            <i class="bi bi-box-seam"></i> View Products
+        </a>
+        <a class="btn btn-outline-light btn-lg shadow" href="{% url 'category:category_list' %}" role="button">
+            <i class="bi bi-tags"></i> View Categories
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-lg rounded-4 h-100">
+            <div class="card-body">
+                <h5 class="card-title text-primary fw-semibold">
+                    <i class="bi bi-box"></i> Products
+                </h5>
+                <p class="card-text text-muted">Browse our wide range of products and categories</p>
+                <a href="{% url 'product:product_list' %}" class="btn btn-outline-primary">Explore Products</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card border-0 shadow-lg rounded-4 h-100">
+            <div class="card-body">
+                <h5 class="card-title text-success fw-semibold">
+                    <i class="bi bi-tags-fill"></i> Categories
+                </h5>
+                <p class="card-text text-muted">Explore product categories what you want</p>
+                <a href="{% url 'category:category_list' %}" class="btn btn-outline-success">Explore Categories</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

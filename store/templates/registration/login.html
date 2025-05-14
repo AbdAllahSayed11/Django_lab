@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-gradient text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #4a90e2, #007bff);">
+                <h3 class="mb-0"><i class="bi bi-box-arrow-in-right"></i> Login</h3>
+            </div>
+            <div class="card-body px-4 py-4">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label"><i class="bi bi-person-fill"></i> Username</label>
+                        <input type="text" name="username" class="form-control rounded-3" id="id_username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label"><i class="bi bi-lock-fill"></i> Password</label>
+                        <input type="password" name="password" class="form-control rounded-3" id="id_password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary rounded-pill">
+                            <i class="bi bi-box-arrow-in-right"></i> Login
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-4 text-center">
+                    <p class="mb-0">Don't have an account? <a href="{% url 'register' %}" class="text-decoration-underline">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
